@@ -14,6 +14,11 @@ func TestIntQueue(t *testing.T) {
 	intQueue.enqueue(7)
 	intQueue.enqueue(9)
 
+	peekVal := intQueue.peek()
+	if peekVal != 5 {
+		t.Errorf("Wrong peek process. Expected 5 got %v", peekVal)
+	}
+
 	if intQueue.length != 3 {
 		wrongLengthError(t, 3, intQueue.length)
 	}
