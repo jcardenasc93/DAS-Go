@@ -29,25 +29,27 @@ type Point struct {
 
 // isOutOfMaze checks if current point is out of maze boundaries
 func isOutOfMaze(maze *[]string, current *Point) bool {
-	// Assumes maze is square
-	limit := len(*maze)
-	if current.x < 0 || current.x >= limit || current.y < 0 || current.y >= limit {
+	yLimit := len(*maze)
+	xLimit := len((*maze)[current.y])
+	if current.x < 0 || current.x >= xLimit || current.y < 0 || current.y >= yLimit {
 		return true
 	}
 	return false
 }
 
 func checkSeen(current *Point, seen *[][]bool) bool {
-	if (*seen)[current.x][current.y] {
-		return true
-	} else {
-		(*seen)[current.x][current.y] = true
-		return false
-	}
+	return (*seen)[current.y][current.x]
+}
+
+var directions = [][]int{
+	{-1, 0},
+	{1, 0},
+	{0, 1},
+	{0, -1},
 }
 
 // move is the recursive func and evaluates the wrong cases or if exit is found
-func move(maze *[]string, current Point, end string, wall string, seen [][]bool) bool {
+func move(maze *[]string, current Point, end Point, wall string, seen *[][]bool, path *[]Point) bool {
 	// Basic case: Evaluates if current point is
 	// 1) Current is out of maze boundaries
 	// 2) Current is a wall
@@ -63,9 +65,45 @@ func move(maze *[]string, current Point, end string, wall string, seen [][]bool)
 		return false
 	}
 	// Look for visited
-	visited := checkSeen(&current, &seen)
+	visited := checkSeen(&current, seen)
 	if visited {
 		return false
 	}
-	return true
+	// Check if exit found
+	if current.y == end.y && current.x == end.x {
+		*path = append(*path, current)
+		return true
+	}
+
+	// Recursion here:
+	// Pre op -> add current to path & seen
+	(*seen)[current.y][current.x] = true
+
+	*path = append(*path, current)
+	// Recursion for each direction
+	for i := 0; i < len(directions); i++ {
+		x, y := directions[i][0], directions[i][1]
+		nextCurrent := Point{x: current.x + x, y: current.y + y}
+		if move(maze, nextCurrent, end, wall, seen, path) {
+			// Stop recursion because end found
+			return true
+		}
+	}
+	// Post op -> remove current from path
+	*path = (*path)[:len(*path)-1]
+
+	return false
+}
+
+func solveMaze(maze []string, wall string, start Point, end Point) []Point {
+	var seen = make([][]bool, len(maze))
+	var path = []Point{}
+
+	// Set seen as false
+	for i := 0; i < len(maze); i++ {
+		seen[i] = make([]bool, len(maze[i]))
+	}
+
+	move(&maze, start, end, wall, &seen, &path)
+	return path
 }
