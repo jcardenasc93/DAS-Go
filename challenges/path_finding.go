@@ -89,7 +89,8 @@ func move(maze *[]string, current Point, end Point, wall string, seen *[][]bool,
 			return true
 		}
 	}
-	// Post op -> remove current from path
+	// Post op -> remove current from path. When all of the dirs are false
+	// the position must be poped from path slice
 	*path = (*path)[:len(*path)-1]
 
 	return false

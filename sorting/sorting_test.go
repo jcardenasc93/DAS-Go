@@ -32,5 +32,14 @@ func TestBubbleSort(t *testing.T) {
 
 		}
 	}
+}
 
+func TestQuickSort(t *testing.T) {
+	for _, input := range inputs {
+		arr = QuickSort(&input.arr)
+		if slicesAreEqual(arr, input.sorted) == false {
+			t.Errorf("Array is not sorted!\n%v is not sorted. Should be like\n%v", arr, sorted)
+
+		}
+	}
 }
