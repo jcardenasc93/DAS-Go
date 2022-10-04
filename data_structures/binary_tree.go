@@ -6,6 +6,24 @@ type BinaryTreeNode struct {
 	right *BinaryTreeNode
 }
 
+func ShiftBinaryQueue(s *[]BinaryTreeNode) BinaryTreeNode {
+	var val BinaryTreeNode
+	if len(*s) > 0 {
+		val = (*s)[0]
+		(*s) = (*s)[1:]
+	}
+	return val
+}
+
+func UnshiftBinaryQueue(s *[]BinaryTreeNode) BinaryTreeNode {
+	var val BinaryTreeNode
+	if len(*s) > 1 {
+		val = (*s)[len(*s)-1]
+		(*s) = (*s)[:len(*s)-1]
+	}
+	return val
+}
+
 var bTree = BinaryTreeNode{
 	value: 20,
 	right: &BinaryTreeNode{

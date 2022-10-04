@@ -45,6 +45,18 @@ var postOrderExpected = []int{
 	20,
 }
 
+var btfsInputTrue = []int{
+	45,
+	7,
+	100,
+}
+
+var btfsInputFalse = []int{
+	300,
+	277,
+	0,
+}
+
 func TestPreOrderBinaryTree(t *testing.T) {
 	result := preOrderSearch(&bTree)
 	if utils.SlicesAreEqual(result, preOrderExpected) == false {
@@ -63,5 +75,21 @@ func TestPostOrderBinaryTree(t *testing.T) {
 	result := postOrderSearch(&bTree)
 	if utils.SlicesAreEqual(result, postOrderExpected) == false {
 		t.Errorf("Pre order traversal fails.\nExpected: %v\n Got: %v", postOrderExpected, result)
+	}
+}
+
+func TestBTFSIn(t *testing.T) {
+	for _, number := range btfsInputTrue {
+		if breadthFirstSearch(bTree, number) == false {
+			t.Errorf("Breadth first search fails. %v is present in binary tree", number)
+		}
+	}
+}
+
+func TestBTFSNotIn(t *testing.T) {
+	for _, number := range btfsInputFalse {
+		if breadthFirstSearch(bTree, number) == true {
+			t.Errorf("Breadth first search fails. %v is present in binary tree", number)
+		}
 	}
 }
