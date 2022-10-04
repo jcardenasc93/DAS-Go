@@ -13,15 +13,14 @@ Repeat this process until sub-array has lenght = 1
 func partition(arr *[]int, low int, high int) int {
 	pivot := (*arr)[high]
 	index := low - 1
-	for i := 0; i < high; i++ {
+	for i := low; i < high; i++ {
 		if (*arr)[i] <= pivot {
 			index++
 			(*arr)[i], (*arr)[index] = (*arr)[index], (*arr)[i]
-
 		}
 	}
 	index++
-	(*arr)[index], (*arr)[high] = pivot, (*arr)[index]
+	(*arr)[high], (*arr)[index] = (*arr)[index], pivot
 	return index
 }
 
@@ -32,12 +31,12 @@ func qs(arr *[]int, low int, high int) {
 		return
 	}
 	pivotIdx := partition(arr, low, high)
-	qs(arr, low, pivotIdx-1)  // -> right side
-	qs(arr, pivotIdx+1, high) // -> left side
+	qs(arr, low, pivotIdx-1)  // -> left side
+	qs(arr, pivotIdx+1, high) // -> right side
 }
 
 // QuickSort is quicksort algo entry point
 func QuickSort(arr *[]int) []int {
-	qs(arr, 0, 1)
+	qs(arr, 0, len(*arr)-1)
 	return *arr
 }
