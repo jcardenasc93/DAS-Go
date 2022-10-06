@@ -8,17 +8,17 @@ func walk(curr *BinaryTreeNode, path *[]int) []int {
 	}
 
 	// Pre step
-	*path = append(*path, curr.value)
+	*path = append(*path, curr.Value)
 	// Recursion
-	walk(curr.left, path)
-	walk(curr.right, path)
+	walk(curr.Left, path)
+	walk(curr.Right, path)
 
 	// Post step
 	return *path
 }
 
 // preOrderSearch func traversal binary tree in pre-order way and prints
-// each of the found values
+// each of the found Values
 func preOrderSearch(head *BinaryTreeNode) []int {
 	path := []int{}
 	return walk(head, &path)

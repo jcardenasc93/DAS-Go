@@ -6,14 +6,14 @@ func breadthFirstSearch(head BinaryTreeNode, number int) bool {
 	binaryQueue := []BinaryTreeNode{head}
 	for len(binaryQueue) > 0 {
 		curr := ShiftBinaryQueue(&binaryQueue)
-		if curr.value == number {
+		if curr.Value == number {
 			return true
 		}
-		if curr.left != nil {
-			binaryQueue = append(binaryQueue, *curr.left)
+		if curr.Left != nil {
+			binaryQueue = append(binaryQueue, *curr.Left)
 		}
-		if curr.right != nil {
-			binaryQueue = append(binaryQueue, *curr.right)
+		if curr.Right != nil {
+			binaryQueue = append(binaryQueue, *curr.Right)
 		}
 	}
 	return false

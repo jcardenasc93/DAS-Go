@@ -9,16 +9,16 @@ func walkPost(curr *BinaryTreeNode, path *[]int) []int {
 
 	// Pre step
 	// Recursion
-	walkPost(curr.left, path)
-	walkPost(curr.right, path)
+	walkPost(curr.Left, path)
+	walkPost(curr.Right, path)
 
 	// Post step
-	*path = append(*path, curr.value)
+	*path = append(*path, curr.Value)
 	return *path
 }
 
 // preOrderSearch func traversal binary tree in pre-order way and prints
-// each of the found values. Post order traversal is depth first type
+// each of the found Values. Post order traversal is depth first type
 func postOrderSearch(head *BinaryTreeNode) []int {
 	path := []int{}
 	return walkPost(head, &path)

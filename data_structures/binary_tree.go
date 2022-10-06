@@ -1,9 +1,9 @@
 package datastructures
 
 type BinaryTreeNode struct {
-	value int
-	left  *BinaryTreeNode
-	right *BinaryTreeNode
+	Value int
+	Left  *BinaryTreeNode
+	Right *BinaryTreeNode
 }
 
 func ShiftBinaryQueue(s *[]BinaryTreeNode) BinaryTreeNode {
@@ -24,90 +24,90 @@ func UnshiftBinaryQueue(s *[]BinaryTreeNode) BinaryTreeNode {
 	return val
 }
 
-var bTree = BinaryTreeNode{
-	value: 20,
-	right: &BinaryTreeNode{
-		value: 50,
-		right: &BinaryTreeNode{
-			value: 100,
-			right: nil,
-			left:  nil,
+var BTree = BinaryTreeNode{
+	Value: 20,
+	Right: &BinaryTreeNode{
+		Value: 50,
+		Right: &BinaryTreeNode{
+			Value: 100,
+			Right: nil,
+			Left:  nil,
 		},
-		left: &BinaryTreeNode{
-			value: 30,
-			right: &BinaryTreeNode{
-				value: 45,
-				right: nil,
-				left:  nil,
+		Left: &BinaryTreeNode{
+			Value: 30,
+			Right: &BinaryTreeNode{
+				Value: 45,
+				Right: nil,
+				Left:  nil,
 			},
-			left: &BinaryTreeNode{
-				value: 29,
-				right: nil,
-				left:  nil,
+			Left: &BinaryTreeNode{
+				Value: 29,
+				Right: nil,
+				Left:  nil,
 			},
 		},
 	},
-	left: &BinaryTreeNode{
-		value: 10,
-		right: &BinaryTreeNode{
-			value: 15,
-			right: nil,
-			left:  nil,
+	Left: &BinaryTreeNode{
+		Value: 10,
+		Right: &BinaryTreeNode{
+			Value: 15,
+			Right: nil,
+			Left:  nil,
 		},
-		left: &BinaryTreeNode{
-			value: 5,
-			right: &BinaryTreeNode{
-				value: 7,
-				right: nil,
-				left:  nil,
+		Left: &BinaryTreeNode{
+			Value: 5,
+			Right: &BinaryTreeNode{
+				Value: 7,
+				Right: nil,
+				Left:  nil,
 			},
-			left: nil,
+			Left: nil,
 		},
 	},
 }
 
-var bTree2 = BinaryTreeNode{
-	value: 20,
-	right: &BinaryTreeNode{
-		value: 50,
-		right: nil,
-		left: &BinaryTreeNode{
-			value: 30,
-			right: &BinaryTreeNode{
-				value: 45,
-				right: &BinaryTreeNode{
-					value: 49,
-					left:  nil,
-					right: nil,
+var BTree2 = BinaryTreeNode{
+	Value: 20,
+	Right: &BinaryTreeNode{
+		Value: 50,
+		Right: nil,
+		Left: &BinaryTreeNode{
+			Value: 30,
+			Right: &BinaryTreeNode{
+				Value: 45,
+				Right: &BinaryTreeNode{
+					Value: 49,
+					Left:  nil,
+					Right: nil,
 				},
-				left: nil,
+				Left: nil,
 			},
-			left: &BinaryTreeNode{
-				value: 29,
-				right: nil,
-				left: &BinaryTreeNode{
-					value: 21,
-					right: nil,
-					left:  nil,
+			Left: &BinaryTreeNode{
+				Value: 29,
+				Right: nil,
+				Left: &BinaryTreeNode{
+					Value: 21,
+					Right: nil,
+					Left:  nil,
 				},
 			},
 		},
 	},
-	left: &BinaryTreeNode{
-		value: 10,
-		right: &BinaryTreeNode{
-			value: 15,
-			right: nil,
-			left:  nil,
+	Left: &BinaryTreeNode{
+		Value: 10,
+		Right: &BinaryTreeNode{
+			Value: 15,
+			Right: nil,
+			Left:  nil,
 		},
-		left: &BinaryTreeNode{
-			value: 5,
-			right: &BinaryTreeNode{
-				value: 7,
-				right: nil,
-				left:  nil,
+		Left: &BinaryTreeNode{
+			Value: 5,
+			Right: &BinaryTreeNode{
+				Value: 7,
+				Right: nil,
+				Left:  nil,
 			},
-			left: nil,
+			Left: nil,
 		},
 	},
 }

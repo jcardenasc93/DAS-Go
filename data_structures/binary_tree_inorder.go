@@ -9,16 +9,16 @@ func walkIn(curr *BinaryTreeNode, path *[]int) []int {
 
 	// Pre step
 	// Recursion
-	walkIn(curr.left, path)
-	*path = append(*path, curr.value)
-	walkIn(curr.right, path)
+	walkIn(curr.Left, path)
+	*path = append(*path, curr.Value)
+	walkIn(curr.Right, path)
 
 	// Post step
 	return *path
 }
 
 // preOrderSearch func traversal binary tree in pre-order way and prints
-// each of the found values. In order traversal is depth first type
+// each of the found Values. In order traversal is depth first type
 func inOrderSearch(head *BinaryTreeNode) []int {
 	path := []int{}
 	return walkIn(head, &path)

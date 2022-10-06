@@ -58,21 +58,21 @@ var btfsInputFalse = []int{
 }
 
 func TestPreOrderBinaryTree(t *testing.T) {
-	result := preOrderSearch(&bTree)
+	result := preOrderSearch(&BTree)
 	if utils.SlicesAreEqual(result, preOrderExpected) == false {
 		t.Errorf("Pre order traversal fails.\nExpected: %v\n Got: %v", preOrderExpected, result)
 	}
 }
 
 func TestInOrderBinaryTree(t *testing.T) {
-	result := inOrderSearch(&bTree)
+	result := inOrderSearch(&BTree)
 	if utils.SlicesAreEqual(result, inOrderExpected) == false {
 		t.Errorf("Pre order traversal fails.\nExpected: %v\n Got: %v", inOrderExpected, result)
 	}
 }
 
 func TestPostOrderBinaryTree(t *testing.T) {
-	result := postOrderSearch(&bTree)
+	result := postOrderSearch(&BTree)
 	if utils.SlicesAreEqual(result, postOrderExpected) == false {
 		t.Errorf("Pre order traversal fails.\nExpected: %v\n Got: %v", postOrderExpected, result)
 	}
@@ -80,7 +80,7 @@ func TestPostOrderBinaryTree(t *testing.T) {
 
 func TestBTFSIn(t *testing.T) {
 	for _, number := range btfsInputTrue {
-		if breadthFirstSearch(bTree, number) == false {
+		if breadthFirstSearch(BTree, number) == false {
 			t.Errorf("Breadth first search fails. %v is present in binary tree", number)
 		}
 	}
@@ -88,7 +88,7 @@ func TestBTFSIn(t *testing.T) {
 
 func TestBTFSNotIn(t *testing.T) {
 	for _, number := range btfsInputFalse {
-		if breadthFirstSearch(bTree, number) == true {
+		if breadthFirstSearch(BTree, number) == true {
 			t.Errorf("Breadth first search fails. %v is present in binary tree", number)
 		}
 	}
