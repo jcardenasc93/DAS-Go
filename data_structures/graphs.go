@@ -68,3 +68,52 @@ func BFSOnAdjancentMatrixGraph(graph WeightedAdjMatrix, startPoint int, value in
 	}
 	return path
 }
+
+// This is the other way to represest a weighted graph using list
+type GraphEdge struct {
+	to     int
+	weight int
+}
+type WeightedAdjList struct {
+	data [][]GraphEdge
+}
+
+// func DFS implements the logic to search a given value
+// in a graph represented as weighted adjacent list using depth first search approach
+// and returns the path took to find the value
+func DFSOnAdjancentMatrixGraph(graph WeightedAdjList, startPoint int, value int) []int {
+	path := []int{}
+	seen := make([]bool, len(graph.data), len(graph.data)) // This slice saves seen nodes
+	utils.FillBooleanSlice(&seen, len(seen), false)
+	walkAdjList(&graph, startPoint, value, &seen, &path)
+	if len(path) == 0 {
+		return []int{}
+	}
+	return path
+}
+
+func walkAdjList(graph *WeightedAdjList, current int, value int, seen *[]bool, path *[]int) bool {
+	// Base cases
+	if (*seen)[current] == true {
+		return false
+	}
+	// Pre operation. Add current to path
+	*path = append(*path, current)
+	if value == current {
+		return true
+	}
+	(*seen)[current] = true
+	// Recurse
+	edges := graph.data[current]
+	for _, edge := range edges {
+		if walkAdjList(graph, edge.to, value, seen, path) == true {
+			return true
+		}
+	}
+
+	// Post operation. Remove element from the path if not found.
+	// As is recursive operation this makes path = [] when the value is
+	// not present
+	*path = (*path)[:len((*path))-1]
+	return false
+}
