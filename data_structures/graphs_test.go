@@ -33,75 +33,75 @@ var weightGraph = WeightedAdjMatrix{
 //	\                   |
 //	  (2) --- (3) ---- (6)
 var weigthGraphList = WeightedAdjList{
-	data: [][]GraphEdge{
+	Data: [][]GraphEdge{
 		{
 			GraphEdge{
-				to:     1,
-				weight: 3,
+				To:     1,
+				Weight: 3,
 			},
 			GraphEdge{
-				to:     2,
-				weight: 1,
+				To:     2,
+				Weight: 1,
 			},
 		}, //0
 		{
 			GraphEdge{
-				to:     0,
-				weight: 3,
+				To:     0,
+				Weight: 3,
 			},
 			GraphEdge{
-				to:     4,
-				weight: 1,
+				To:     4,
+				Weight: 1,
 			},
 		}, //1
 		{
 			GraphEdge{
-				to:     0,
-				weight: 1,
+				To:     0,
+				Weight: 1,
 			},
 			GraphEdge{
-				to:     3,
-				weight: 7,
+				To:     3,
+				Weight: 7,
 			},
 		}, //2
 		{
 			GraphEdge{
-				to:     2,
-				weight: 7,
+				To:     2,
+				Weight: 7,
 			},
 			GraphEdge{
-				to:     6,
-				weight: 4,
+				To:     6,
+				Weight: 4,
 			},
 		}, //3
 		{
 			GraphEdge{
-				to:     1,
-				weight: 1,
+				To:     1,
+				Weight: 1,
 			},
 			GraphEdge{
-				to:     5,
-				weight: 2,
+				To:     5,
+				Weight: 2,
 			},
 		}, //4
 		{
 			GraphEdge{
-				to:     6,
-				weight: 1,
+				To:     6,
+				Weight: 1,
 			},
 			GraphEdge{
-				to:     4,
-				weight: 2,
+				To:     4,
+				Weight: 2,
 			},
 		}, //5
 		{
 			GraphEdge{
-				to:     3,
-				weight: 1,
+				To:     3,
+				Weight: 1,
 			},
 			GraphEdge{
-				to:     5,
-				weight: 1,
+				To:     5,
+				Weight: 1,
 			},
 		}, //6
 	},
